@@ -1,0 +1,30 @@
+version: '3'
+networks:
+    mapeamento-arquivos-net:
+        driver: bridge
+services:
+    database:
+        container_name: mapeamento-arquivos-database
+        image: microsoft/mssql-server-linux
+        restart: always
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD: Secret00
+        volumes:
+            - ./database:/Documents
+        networks:
+            - mapeamento-arquivos-net
+        ports:
+            - 1433:1433
+    backend:
+        container_name: mapeamento-arquivos-backend-app
+        image: praser/mapeamento-arquivos-backend
+        volumes:
+            - ./backend:/var/www
+        networks:
+            - mapeamento-arquivos-net
+        ports:
+            - 80:3000
+        build:
+            dockerfile: ./backend/Dockerfile
+            context: .
