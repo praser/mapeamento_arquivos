@@ -17,7 +17,7 @@ services:
         ports:
             - 1433:1433
     backend:
-        container_name: mapeamento-arquivos-backend-app
+        container_name: mapeamento-arquivos-backend
         image: praser/mapeamento-arquivos-backend
         volumes:
             - ./backend:/var/www
