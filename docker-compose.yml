@@ -24,6 +24,9 @@ services:
             - mapeamento-arquivos-net
         ports:
             - 3000:3000
+            - 9229:9229
         build:
             dockerfile: ./backend/Dockerfile
             context: .
+        depends_on:
+            - database

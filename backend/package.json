@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server.js"
+    "start": "nodemon index.js"
   },
   "author": "Rubens Praser Júnior",
   "license": "ISC",
