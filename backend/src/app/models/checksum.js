@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Checksum",
-      underscored: true,
+      underscored: false,
     }
   );
   return Checksum;

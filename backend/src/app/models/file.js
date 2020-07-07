@@ -14,24 +14,24 @@ module.exports = (sequelize, DataTypes) => {
   }
   File.init(
     {
-      directory_id: DataTypes.INTEGER,
-      checksum_id: DataTypes.INTEGER,
-      full_name: DataTypes.STRING,
-      directory_name: DataTypes.STRING,
+      directoryId: DataTypes.INTEGER,
+      checksumId: DataTypes.INTEGER,
+      fullName: DataTypes.STRING,
+      directoryName: DataTypes.STRING,
       name: DataTypes.STRING,
       extension: DataTypes.STRING,
       length: DataTypes.BIGINT,
-      creation_time: DataTypes.TIME,
-      last_access_time: DataTypes.TIME,
-      last_write_access_time: DataTypes.TIME,
-      last_occurrence_time: DataTypes.TIME,
+      creationTime: DataTypes.TIME,
+      lastAccessTime: DataTypes.TIME,
+      lastWriteAccessTime: DataTypes.TIME,
+      lastOccurrenceTime: DataTypes.TIME,
       owner: DataTypes.STRING,
       deleted: DataTypes.BOOLEAN,
     },
     {
       sequelize,
       modelName: "File",
-      underscored: true,
+      underscored: false,
     }
   );
   return File;

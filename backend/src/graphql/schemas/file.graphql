@@ -1,0 +1,27 @@
+scalar DateTime
+
+type File {
+  id: ID!
+  directoryId: ID!
+  checksumId: ID!
+  fullName: String!
+  directoryName: String
+  name: String
+  extension: String
+  length: Int
+  creationTime: DateTime
+  lastAccessTime: DateTime
+  lastWriteTime: DateTime
+  lastOccurrenceTime: DateTime
+  owner: String
+  deleted: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  Directory: Directory!
+  Checksum: Checksum!
+}
+
+type Query {
+  files: [File!]
+  file(id: ID!): File
+}

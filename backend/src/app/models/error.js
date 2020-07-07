@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Error.init(
     {
-      directory_id: DataTypes.INTEGER,
-      full_name: DataTypes.STRING,
+      directoryId: DataTypes.INTEGER,
+      fullName: DataTypes.STRING,
       description: DataTypes.STRING,
     },
     {
       sequelize,
       modelName: "Error",
-      underscored: true,
+      underscored: false,
     }
   );
   return Error;

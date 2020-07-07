@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      directory_id: {
+      directoryId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         eferences: {
@@ -17,7 +17,7 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      checksum_id: {
+      checksumId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         eferences: {
@@ -27,11 +27,11 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      full_name: {
+      fullName: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      directory_name: {
+      directoryName: {
         type: Sequelize.STRING,
       },
       name: {
@@ -43,16 +43,16 @@ module.exports = {
       length: {
         type: Sequelize.BIGINT,
       },
-      creation_time: {
+      creationTime: {
         type: Sequelize.TIME,
       },
-      last_access_time: {
+      lastAccessTime: {
         type: Sequelize.TIME,
       },
-      last_write_access_time: {
+      lastWriteAccessTime: {
         type: Sequelize.TIME,
       },
-      last_occurrence_time: {
+      lastOccurrenceTime: {
         type: Sequelize.TIME,
       },
       owner: {
@@ -61,13 +61,15 @@ module.exports = {
       deleted: {
         type: Sequelize.BOOLEAN,
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
     });
   },

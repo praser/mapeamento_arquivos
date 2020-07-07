@@ -1,16 +1,6 @@
 require("dotenv/config");
 const { GraphQLServer } = require("graphql-yoga");
-
-const typeDefs = `
-    type Query {
-        hello(name: String): String!
-    }
-`;
-
-const resolvers = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name || "World"}`,
-  },
-};
+const resolvers = require("./graphql/resolvers");
+const typeDefs = require("./graphql/schemas");
 
 module.exports = new GraphQLServer({ typeDefs, resolvers });

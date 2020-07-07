@@ -1,0 +1,15 @@
+scalar DateTime
+
+type Directory {
+  id: ID!
+  path: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  Files: [File!]
+  Errors: [Error!]
+}
+
+type Query {
+  directories: [Directory!]
+  directory(id: ID!): Directory
+}

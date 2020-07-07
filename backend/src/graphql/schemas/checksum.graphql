@@ -1,0 +1,14 @@
+scalar DateTime
+
+type Checksum {
+  id: ID!
+  md5: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  Files: [File!]
+}
+
+type Query {
+  checksums: [Checksum!]
+  checksum(id: ID!): Checksum
+}

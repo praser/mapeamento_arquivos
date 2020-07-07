@@ -1,0 +1,16 @@
+scalar DateTime
+
+type Error {
+  id: ID!
+  directoryId: ID!
+  fullName: String!
+  description: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  Directory: Directory!
+}
+
+type Query {
+  errors: [Error!]
+  error(id: ID!): Error
+}
