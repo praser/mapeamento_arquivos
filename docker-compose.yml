@@ -10,8 +10,6 @@ services:
         environment:
             ACCEPT_EULA: Y
             SA_PASSWORD: Secret00
-        volumes:
-            - ./database:/Documents
         networks:
             - mapeamento-arquivos-net
         ports:
@@ -19,12 +17,13 @@ services:
     backend:
         container_name: mapeamento-arquivos-backend
         image: praser/mapeamento-arquivos-backend
+        env_file: ./backend/.env
         volumes:
             - ./backend:/var/www
         networks:
             - mapeamento-arquivos-net
         ports:
-            - 80:3000
+            - 3000:3000
         build:
             dockerfile: ./backend/Dockerfile
             context: .
