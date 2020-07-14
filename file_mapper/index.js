@@ -17,8 +17,7 @@ async function readShares() {
     shares.push(line.match(/[A-Za-z]:\\.*/)[0].trim());
   }
 
-  //return shares;
-  return ['/Users/praser/Downloads/', '/Users/praser/Projects/']
+  return shares;
 }
 
 async function generateChecksum(filePath) {
@@ -46,6 +45,7 @@ async function* getFiles(dir) {
 
 (async () => {
   const shares = await readShares();
+  console.log(shares);
   const sharesInfo = []
   const errorsInfo = []
   
@@ -54,6 +54,7 @@ async function* getFiles(dir) {
       try {
         const stats = await stat(f);
         if (stats.isFile()) {
+          console.log(f);
           const checksum = await generateChecksum(f);
           sharesInfo.push({
             fullName: f,

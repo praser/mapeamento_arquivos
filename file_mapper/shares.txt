@@ -1,2 +1,0 @@
-PUB          C:\PUB                          
-Users        C:\Users                        

@@ -1,2 +1,5 @@
 node_modules
 .env
+file_mapper/**/node14-linux-x64
+file_mapper/**/node14-macos-x64
+file_mapper/**/node14-win-x64

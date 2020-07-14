@@ -1,0 +1,1 @@
+net share | find /V "$" | find ":\" > ./shares.txt
