@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="sql_server"
+  DTS:DTSID="{723B8641-CB14-45F9-8713-04892E8EC054}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.0.56;User ID=sa;Initial Catalog=mapeamento_arquivos;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXZ+VkaFwfEyY4JXP7BFA4gAAAAACAAAAAAAQZgAAAAEAACAAAABViiK9urBrq7d+C8tyi8W9EmnuYynBSgzDxizh1TNt5QAAAAAOgAAAAAIAACAAAABc2BGiac5Us/5aGwyF6i70lIcnFsNhwnT9tNuvG+VrFYAAAACJxlIeEhb9fAdIqBRzEhGZf+tvxx52NByAsptEW3mThxJU+qg+dPuztnVZWrtsEifEMM7ma5VOzK6j2tdVA18+/oroSWQFZrVXfcgSkHUZW70SjPmEQNzXJF9tD+lcIc5S4VuJcqpdpEJp9O2PoFSOuySL+pY15Jkh4UzTJNxYqEAAAADgl76i80IXoFQjyH0NfWWuEA2YcND5w2gifBTiC9dTjE1qxUVh2WNfP8CD6NbvMy1rnNXS7+z1mrT7xvjdzeey</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
