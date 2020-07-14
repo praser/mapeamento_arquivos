@@ -1,0 +1,8 @@
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\file-mapper.exe
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\file-mapper.pdb
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\obj\Release\file-mapper.exe
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\obj\Release\file-mapper.pdb
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\CsvHelper.dll
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\ZetaLongPaths.dll
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\CsvHelper.xml
+c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\ZetaLongPaths.pdb
