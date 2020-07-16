@@ -17,6 +17,19 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
+    },
+    {
+      "type":"chrome",
+      "name":"Chrome: Attach to react frontend",
+      "request": "launch",
+      "url": "http://localhost:4000",
+      "webRoot": "${workspaceFolder}/web/src",
+      "sourceMapPathOverrides": {
+        "/var/www/src/*": "${webRoot}/*"
+      },
+      "runtimeArgs": [
+        "--remote-debugging-port=9222"
+      ]
     }
   ]
 }

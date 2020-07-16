@@ -30,3 +30,17 @@ services:
             context: .
         depends_on:
             - database
+    web:
+        container_name: mapeamento-arquivos-web
+        image: praser/mapeamento-arquivos-web
+        volumes:
+            - ./web:/var/www
+        networks:
+            - mapeamento-arquivos-net
+        ports:
+            - 4000:3000
+            - 9222:9222
+        depends_on:
+            - backend
+        tty: true
+
