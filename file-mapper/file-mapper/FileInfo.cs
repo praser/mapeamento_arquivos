@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using CsvHelper.TypeConversion;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,13 +21,21 @@ namespace file_mapper
 
         public static void writeToCSV(List<FileInfo> records, string filepath)
         {
-            StreamWriter writer = new StreamWriter(filepath);
-            CsvWriter csv = new CsvWriter(writer);
+            using (var writer = new StreamWriter(filepath))
+            using (var csv = new CsvWriter(writer))
+            {
+                var options = new TypeConverterOptions
+                {
+                    Format = "o"
+                };
+                TypeConverterOptionsFactory.AddOptions<DateTime>(options);
 
-            csv.Configuration.Delimiter = ";";
-            csv.WriteHeader<FileInfo>();
-            csv.WriteRecords(records);
-            writer.Flush();
+                csv.Configuration.Delimiter = ";";
+                csv.WriteHeader<FileInfo>();
+                csv.WriteRecords(records);
+                writer.Flush();
+            }
+
         }
     }
 }

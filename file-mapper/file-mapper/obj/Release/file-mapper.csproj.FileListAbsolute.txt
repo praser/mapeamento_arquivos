@@ -6,3 +6,12 @@ c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\fil
 c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\ZetaLongPaths.dll
 c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\CsvHelper.xml
 c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Release\ZetaLongPaths.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\obj\Release\file-mapper.exe
+Z:\mapeamento_arquivos\file-mapper\file-mapper\obj\Release\file-mapper.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Release\file-mapper.exe
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Release\file-mapper.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Release\CsvHelper.dll
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Release\ZetaLongPaths.dll
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Release\CsvHelper.xml
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Release\ZetaLongPaths.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\obj\Release\file-mapper.csprojResolveAssemblyReference.cache

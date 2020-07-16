@@ -7,3 +7,12 @@ c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\fil
 c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Debug\ZetaLongPaths.pdb
 c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Debug\CsvHelper.dll
 c:\users\c091800.corpcaixa\documents\visual studio 2015\Projects\file-mapper\file-mapper\bin\Debug\CsvHelper.xml
+Z:\mapeamento_arquivos\file-mapper\file-mapper\obj\Debug\file-mapper.exe
+Z:\mapeamento_arquivos\file-mapper\file-mapper\obj\Debug\file-mapper.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Debug\file-mapper.exe
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Debug\file-mapper.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Debug\CsvHelper.dll
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Debug\ZetaLongPaths.dll
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Debug\CsvHelper.xml
+Z:\mapeamento_arquivos\file-mapper\file-mapper\bin\Debug\ZetaLongPaths.pdb
+Z:\mapeamento_arquivos\file-mapper\file-mapper\obj\Debug\file-mapper.csprojResolveAssemblyReference.cache

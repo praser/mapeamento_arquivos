@@ -88,7 +88,7 @@ namespace file_mapper
                     creationTime = fileInfo.CreationTime,
                     lastAccessTime = fileInfo.LastAccessTime,
                     lastWriteTime = fileInfo.LastWriteTime,
-                    lastOccurrenceTime = new DateTime(),
+                    lastOccurrenceTime = DateTime.Now,
                     checksum = fileInfo.MD5Hash,
                 });
 
