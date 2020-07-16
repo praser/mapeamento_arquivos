@@ -10,7 +10,7 @@ module.exports = {
       directoryId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        eferences: {
+        references: {
           model: "Directories",
           key: "id",
         },
@@ -20,7 +20,7 @@ module.exports = {
       checksumId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        eferences: {
+        references: {
           model: "Checksums",
           key: "id",
         },
@@ -29,10 +29,10 @@ module.exports = {
       },
       fullName: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(4000),
       },
       directoryName: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(4000),
       },
       name: {
         type: Sequelize.STRING,
@@ -44,22 +44,20 @@ module.exports = {
         type: Sequelize.BIGINT,
       },
       creationTime: {
-        type: Sequelize.TIME,
+        type: Sequelize.DATE,
       },
       lastAccessTime: {
-        type: Sequelize.TIME,
+        type: Sequelize.DATE,
       },
-      lastWriteAccessTime: {
-        type: Sequelize.TIME,
+      lastWriteTime: {
+        type: Sequelize.DATE,
       },
       lastOccurrenceTime: {
-        type: Sequelize.TIME,
-      },
-      owner: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
       },
       deleted: {
         type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
       createdAt: {
         allowNull: false,

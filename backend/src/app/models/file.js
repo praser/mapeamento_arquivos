@@ -23,9 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       length: DataTypes.BIGINT,
       creationTime: DataTypes.TIME,
       lastAccessTime: DataTypes.TIME,
-      lastWriteAccessTime: DataTypes.TIME,
+      lastWriteTime: DataTypes.TIME,
       lastOccurrenceTime: DataTypes.TIME,
-      owner: DataTypes.STRING,
       deleted: DataTypes.BOOLEAN,
     },
     {

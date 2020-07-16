@@ -10,7 +10,7 @@ module.exports = {
       md5: {
         allowNull: false,
         unique: true,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(32),
       },
       createdAt: {
         allowNull: false,

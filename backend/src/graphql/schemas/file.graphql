@@ -13,7 +13,6 @@ type File {
   lastAccessTime: DateTime
   lastWriteTime: DateTime
   lastOccurrenceTime: DateTime
-  owner: String
   deleted: Boolean
   createdAt: DateTime!
   updatedAt: DateTime!
