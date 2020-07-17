@@ -1,2 +1,4 @@
 *.Identifier
 *.Identifier:$DATA
+mapeamento_arquivios_servidores/bin
+mapeamento_arquivios_servidores/obj

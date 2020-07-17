@@ -1,4 +1,5 @@
 packages
 file-mapper/bin
+file-mapper/obj
 *.Identifier
 *.cache
