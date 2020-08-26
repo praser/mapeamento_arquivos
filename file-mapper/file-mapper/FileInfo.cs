@@ -3,6 +3,7 @@ using CsvHelper.TypeConversion;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace file_mapper
 {
@@ -21,12 +22,14 @@ namespace file_mapper
 
         public static void writeToCSV(List<FileInfo> records, string filepath)
         {
-            using (var writer = new StreamWriter(filepath))
+            using (var stream = File.OpenWrite(filepath))
+            using (var writer = new StreamWriter(stream, Encoding.GetEncoding(1252)))
             using (var csv = new CsvWriter(writer))
             {
+                
                 var options = new TypeConverterOptions
                 {
-                    Format = "o"
+                    Format = "o",
                 };
                 TypeConverterOptionsFactory.AddOptions<DateTime>(options);
 
