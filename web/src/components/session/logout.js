@@ -3,7 +3,7 @@ import { UserContext } from '../../contexts';
 import { LogoutButton } from './styles';
 
 const Logout = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const doLogout = () => {
     sessionStorage.removeItem('authToken');
