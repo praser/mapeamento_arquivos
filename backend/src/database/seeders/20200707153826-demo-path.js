@@ -5,11 +5,13 @@ module.exports = {
     await queryInterface.bulkInsert("Directories", [
       {
         path: "/",
+        statsPath: "/stats$",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         path: "/var",
+        statsPath: "/stats$",
         createdAt: new Date(),
         updatedAt: new Date(),
       },

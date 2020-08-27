@@ -3,6 +3,7 @@ scalar DateTime
 type Directory {
   id: ID!
   path: String!
+  statsPath: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   Files: [File!]
