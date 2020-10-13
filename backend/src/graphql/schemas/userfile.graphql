@@ -1,0 +1,19 @@
+scalar DateTime
+
+type UserFile {
+  id: ID!
+  userId: String!
+  fileId: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  Files: [File!]
+}
+
+type Query {
+  userFiles: [UserFile!]
+  userFile(id: ID!): UserFile
+}
+
+type Mutation {
+  createUserFile(userId: String!, fileId: ID!): UserFile
+}

@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Directory);
       this.belongsTo(models.Checksum);
+      this.hasMany(models.UserFile);
     }
   }
   File.init(
