@@ -6,6 +6,7 @@
       <Options>
         <ServerName>DF7436SR355</ServerName>
         <PathOnServer>/SSISDB/MAPEAMENTO_ARQUIVOS_SERVIDORES/mapeamento_arquivios_servidores</PathOnServer>
+        <Run64BitRuntime>true</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
