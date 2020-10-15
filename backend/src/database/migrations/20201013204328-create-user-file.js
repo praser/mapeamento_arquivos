@@ -30,6 +30,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    },
+    {
+      uniqueKeys: {
+        actions_unique: {
+            fields: ['userId', 'fileId']
+        }
+    }
     });
   },
   down: async (queryInterface, Sequelize) => {
