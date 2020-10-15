@@ -6,8 +6,11 @@ import { UserProvider } from './contexts';
 import FileExplorer from './components/fileExplorer';
 import { ApolloProvider } from '@apollo/client';
 import client from './services/filesGraphql'
+import useCurrentUser from './hooks/useCurrentUser'
 
 const Hello = () => {
+  const user = useCurrentUser();
+  console.log(user);
   return (
     <div>
       <Logout />

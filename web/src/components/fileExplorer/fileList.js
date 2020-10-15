@@ -14,6 +14,7 @@ const FileList = ({files}) => {
           <HeaderCol>Criação</HeaderCol>
           <HeaderCol>Modificação mais recente</HeaderCol>
           <HeaderCol>Acessado pela últma vez</HeaderCol>
+          <HeaderCol>Ação</HeaderCol>
         </Row>
       </Header>
       <Body>
