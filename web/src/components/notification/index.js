@@ -1,12 +1,12 @@
-import React from 'react'
-import { Container, Text } from './styles';
+import React from "react"
+import { Container, Text } from "./styles"
 
-const Notification = ({children}) => {
+const Notification = ({ children, variant }) => {
   return (
-    <Container>
-      <Text>{ children }</Text>
+    <Container variant={variant}>
+      <Text>{children}</Text>
     </Container>
-  );
-};
+  )
+}
 
-export default Notification;
+export default Notification
