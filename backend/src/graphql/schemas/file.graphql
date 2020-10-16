@@ -21,6 +21,6 @@ type File {
 }
 
 type Query {
-  files: [File!]
+  files(page: Int!, pageSize: Int!): [File!]
   file(id: ID!): File
 }
