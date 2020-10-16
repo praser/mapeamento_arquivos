@@ -6,8 +6,8 @@ const client = new ApolloClient({
 })
 
 export const LIST_FILES_QUERY = gql`
-  query ListFilesQuery($page: Int!, $pageSize: Int!) {
-    files(page: $page, pageSize: $pageSize) {
+  query ListFilesQuery($page: Int!, $pageSize: Int!, $query: String) {
+    files(page: $page, pageSize: $pageSize, query: $query) {
       id
       fullName
       directoryName

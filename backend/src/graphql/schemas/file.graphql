@@ -21,7 +21,7 @@ type File {
 }
 
 type Query {
-  files(page: Int!, pageSize: Int!): [File!]
+  files(page: Int!, pageSize: Int!, query: String): [File!]
   file(id: ID!): File
   filesCount: Int!
 }

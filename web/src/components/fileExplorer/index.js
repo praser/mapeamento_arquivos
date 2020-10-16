@@ -22,26 +22,25 @@ const FileExplorer = ({ location }) => {
     pageSize: parseInt(searchParams.get("pageSize")) || 10,
   })
   const [filesCount, setFilesCount] = useState(1)
+  const [query, setQuery] = useState(null)
   const { loading, error, data } = useQuery(LIST_FILES_QUERY, {
-    variables: pagination,
+    variables: { ...pagination, query },
   })
   const { data: countData } = useQuery(COUNT_FILES_QUERY)
 
   useEffect(() => {
     if (data) setFiles(data.files)
-  }, [data])
+  }, [data, query])
 
   useEffect(() => {
     if (countData) setFilesCount(countData)
-  }, [countData])
+  }, [countData, query])
 
   const handleFilter = (event) => {
-    const files = data.files
-    const query = event.target.value.toLowerCase()
+    const value = event.target.value.toLowerCase()
+    const query = value.length > 0 ? value : null
 
-    setFiles(
-      files.filter((file) => file.fullName.toLowerCase().includes(query))
-    )
+    setQuery(query)
   }
 
   const handlePageSizeChange = (event) => {
@@ -62,7 +61,7 @@ const FileExplorer = ({ location }) => {
     <>
       <Top>
         <PageSize sizes={[10, 25, 50, 100]} onChange={handlePageSizeChange} />
-        <Filter placeholder='Pesquisar...' onChange={handleFilter} />
+        <Filter placeholder='Pesquisar...' onBlur={handleFilter} />
       </Top>
       <FileList files={files} />
       <PageControl
