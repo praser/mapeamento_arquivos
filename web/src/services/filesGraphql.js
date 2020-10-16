@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_MAIN_API_URL,
@@ -6,8 +6,8 @@ const client = new ApolloClient({
 })
 
 export const LIST_FILES_QUERY = gql`
-  query	{
-    files {
+  query ListFilesQuery($page: Int!, $pageSize: Int!) {
+    files(page: $page, pageSize: $pageSize) {
       id
       fullName
       directoryName
@@ -21,7 +21,13 @@ export const LIST_FILES_QUERY = gql`
       }
     }
   }
-`;
+`
+
+export const COUNT_FILES_QUERY = gql`
+  query {
+    filesCount
+  }
+`
 
 export const CREATE_FILE = gql`
   mutation createUserFile($userId: String!, $fileId: ID!) {
@@ -38,6 +44,6 @@ export const CREATE_FILE = gql`
       }
     }
   }
-`;
+`
 
-export default client;
+export default client
