@@ -1,8 +1,18 @@
 import React from "react"
 import { Controls, ControlButton as Button } from "./styles"
+import { ceil } from "lodash"
+
+const calcPages = (page, pages, size) => {
+  const controls = Array.from(Array(size).keys(), (_, i) =>
+    ceil(i + (page - size / 2))
+  )
+  const outFirst = controls.filter((i) => i > 0)
+  const outLast = outFirst.filter((i) => i <= pages)
+  return outLast
+}
 
 const PageControl = ({ currentPage, pagesCount, handler }) => {
-  const pages = Array.from({ length: pagesCount }, (_, i) => i + 1)
+  const pages = calcPages(currentPage, pagesCount, 5)
   const buttons = pages.map((page) => {
     if (page === currentPage) {
       return (
