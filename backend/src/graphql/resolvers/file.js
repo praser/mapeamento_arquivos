@@ -18,5 +18,6 @@ module.exports = {
       })
     },
     file: async (_, { id }) => File.findByPk(id),
+    filesCount: async () => File.count(),
   },
 }
