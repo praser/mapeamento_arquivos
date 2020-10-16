@@ -1,24 +1,26 @@
 import React from "react"
+import { Controls, ControlButton as Button } from "./styles"
 
 const PageControl = ({ currentPage, pagesCount, handler }) => {
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1)
   const buttons = pages.map((page) => {
     if (page === currentPage) {
       return (
-        <button
+        <Button
           key={page}
           type='button'
           active='active'
           onClick={() => handlePageChange(page)}
+          variant='info'
         >
           {page}
-        </button>
+        </Button>
       )
     } else {
       return (
-        <button key={page} type='button' onClick={() => handlePageChange(page)}>
+        <Button key={page} type='button' onClick={() => handlePageChange(page)}>
           {page}
-        </button>
+        </Button>
       )
     }
   })
@@ -48,21 +50,21 @@ const PageControl = ({ currentPage, pagesCount, handler }) => {
   }
 
   return (
-    <>
-      <button type='button' onClick={handleFirst}>
+    <Controls>
+      <Button type='button' onClick={handleFirst} variant='info'>
         {"<<"}
-      </button>
-      <button type='button' onClick={handleBack}>
+      </Button>
+      <Button type='button' onClick={handleBack} variant='info'>
         {"<"}
-      </button>
+      </Button>
       {buttons}
-      <button type='button' onClick={handleFoward}>
+      <Button type='button' onClick={handleFoward} variant='info'>
         {">"}
-      </button>
-      <button type='button' onClick={handleLast}>
+      </Button>
+      <Button type='button' onClick={handleLast} variant='info'>
         {">>"}
-      </button>
-    </>
+      </Button>
+    </Controls>
   )
 }
 

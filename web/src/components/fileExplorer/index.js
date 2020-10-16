@@ -11,14 +11,15 @@ import Filter from "./filter"
 import PageControl from "./pageControl"
 import { useSearchParams } from "../../hooks/"
 import PageSize from "./pageSize"
+import { Top } from "./styles"
 
 const FileExplorer = ({ location }) => {
   const searchParams = useSearchParams()
   const [files, setFiles] = useState([])
   const [pagination, setPagination] = useState({
     page: parseInt(searchParams.get("page")) || 1,
-    pagesCount: 3,
-    pageSize: parseInt(searchParams.get("pageSize")) || 2,
+    pagesCount: 1,
+    pageSize: parseInt(searchParams.get("pageSize")) || 10,
   })
   const [filesCount, setFilesCount] = useState(1)
   const { loading, error, data } = useQuery(LIST_FILES_QUERY, {
@@ -59,11 +60,10 @@ const FileExplorer = ({ location }) => {
 
   return (
     <>
-      <PageSize
-        sizes={[2, 3, 10, 25, 50, 100]}
-        onChange={handlePageSizeChange}
-      />
-      <Filter placeholder='Pesquisar...' onChange={handleFilter} />
+      <Top>
+        <PageSize sizes={[10, 25, 50, 100]} onChange={handlePageSizeChange} />
+        <Filter placeholder='Pesquisar...' onChange={handleFilter} />
+      </Top>
       <FileList files={files} />
       <PageControl
         currentPage={pagination.page}

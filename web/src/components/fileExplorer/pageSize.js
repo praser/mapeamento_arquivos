@@ -1,14 +1,15 @@
 import React from "react"
+import { Select } from "./styles"
 
 function PageSize({ sizes, ...rest }) {
   return (
-    <select {...rest}>
+    <Select {...rest}>
       {sizes.map((size) => (
         <option key={size} value={size}>
           Mostrar {size} arquivos
         </option>
       ))}
-    </select>
+    </Select>
   )
 }
 

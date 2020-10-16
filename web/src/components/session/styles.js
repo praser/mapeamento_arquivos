@@ -37,9 +37,9 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
+  padding: ${({ small }) => (small ? 5 : 10)}px;
+  font-size: ${({ small }) => (small ? 0.8 : 1)}rem;
+  border-radius: ${({ small }) => (small ? 2.5 : 5)}px;
   border: 0;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
   background-color: ${({ variant }) =>

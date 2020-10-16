@@ -3,15 +3,17 @@ import FileExplorer from "../fileExplorer"
 import { Logout } from "../session"
 import { useCurrentUser } from "../../hooks"
 import TopBar from "../topBar"
+import { Content } from "./styles"
 
 const ListFiles = () => {
   const user = useCurrentUser()
-  console.log(user)
   return (
-    <div>
+    <>
       <TopBar button={<Logout />} />
-      <FileExplorer />
-    </div>
+      <Content>
+        <FileExplorer />
+      </Content>
+    </>
   )
 }
 
