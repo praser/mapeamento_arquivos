@@ -1,14 +1,7 @@
 import React, { createRef, useContext, useState } from "react"
 import { useInput } from "../../hooks"
 import AuthApi from "../../services/authApi"
-import {
-  Container,
-  Form,
-  Title,
-  UsernameInput,
-  PasswordInput,
-  ConfirmButton,
-} from "./styles"
+import { Button, Container, Form, Input, Title } from "./styles"
 import Notification from "../notification"
 import { UserContext } from "../../contexts"
 import jwtDecode from "jwt-decode"
@@ -55,21 +48,21 @@ const Login = () => {
         {message && <Notification variant='danger'>{message}</Notification>}
         <Form id='login-form'>
           <Title>Login</Title>
-          <UsernameInput
+          <Input
             ref={matriculaInput}
             type='text'
             name='matricula'
             placeholder='Matrícula'
             {...bindMatricula}
           />
-          <PasswordInput
+          <Input
             ref={passwordInput}
-            type='text'
+            type='password'
             name='password'
             placeholder='Senha'
             {...bindPassword}
           />
-          <ConfirmButton onClick={handleClick}>Entrar</ConfirmButton>
+          <Button onClick={handleClick}>Entrar</Button>
         </Form>
       </Container>
     </>

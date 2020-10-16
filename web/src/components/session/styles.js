@@ -40,8 +40,8 @@ export const Button = styled.button`
   padding: 10px;
   font-size: 1rem;
   border-radius: 5px;
-  border: 1px solid;
-  margin-bottom: 10px;
+  border: 0;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
   background-color: ${({ variant }) =>
     variant ? COLORS_VARIANTS[variant] : COLORS_VARIANTS.primary};
   color: #ffffff;
@@ -53,11 +53,3 @@ export const Button = styled.button`
     opacity: 1;
   }
 `
-
-export const UsernameInput = styled(Input)``
-
-export const PasswordInput = styled(Input)``
-
-export const ConfirmButton = styled(Button)``
-
-export const LogoutButton = styled.button``
