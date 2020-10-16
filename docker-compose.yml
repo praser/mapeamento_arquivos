@@ -1,54 +1,53 @@
-version: '3'
+version: "3"
 networks:
-    mapeamento-arquivos-net:
-        driver: bridge
+  mapeamento-arquivos-net:
+    driver: bridge
 services:
-    database:
-        container_name: mapeamento-arquivos-database
-        image: microsoft/mssql-server-linux
-        restart: always
-        environment:
-            ACCEPT_EULA: Y
-            SA_PASSWORD: Secret00
-        networks:
-            - mapeamento-arquivos-net
-        ports:
-            - 1433:1433
-    auth_api:
-        container_name: auth-api
-        image: praser/api-autenticacao
-        networks:
-            - mapeamento-arquivos-net
-        ports:
-            - 3001:3000
-    backend:
-        container_name: mapeamento-arquivos-backend
-        image: praser/mapeamento-arquivos-backend
-        env_file: ./backend/.env
-        volumes:
-            - ./backend:/var/www
-        networks:
-            - mapeamento-arquivos-net
-        ports:
-            - 3000:3000
-            - 9229:9229
-        build:
-            dockerfile: ./backend/Dockerfile
-            context: .
-        depends_on:
-            - database
-    web:
-        container_name: mapeamento-arquivos-web
-        image: praser/mapeamento-arquivos-web
-        volumes:
-            - ./web:/var/www
-        networks:
-            - mapeamento-arquivos-net
-        ports:
-            - 4000:3000
-            - 9222:9222
-        depends_on:
-            - backend
-            - auth_api
-        tty: true
-
+  database:
+    container_name: mapeamento-arquivos-database
+    image: microsoft/mssql-server-linux
+    restart: always
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Secret00
+    networks:
+      - mapeamento-arquivos-net
+    ports:
+      - 1433:1433
+  auth_api:
+    container_name: auth-api
+    image: praser/api-autenticacao
+    networks:
+      - mapeamento-arquivos-net
+    ports:
+      - 3001:3000
+  backend:
+    container_name: mapeamento-arquivos-backend
+    image: praser/mapeamento-arquivos-backend
+    env_file: ./backend/.env
+    volumes:
+      - ./backend:/var/www
+    networks:
+      - mapeamento-arquivos-net
+    ports:
+      - 3000:4000
+      - 9229:9229
+    build:
+      dockerfile: ./backend/Dockerfile
+      context: .
+    depends_on:
+      - database
+  web:
+    container_name: mapeamento-arquivos-web
+    image: praser/mapeamento-arquivos-web
+    volumes:
+      - ./web:/var/www
+    networks:
+      - mapeamento-arquivos-net
+    ports:
+      - 4000:3000
+      - 9222:9222
+    depends_on:
+      - backend
+      - auth_api
+    tty: true
