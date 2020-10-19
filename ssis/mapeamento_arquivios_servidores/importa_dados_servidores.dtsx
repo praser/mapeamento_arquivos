@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="importa_dados_servidores"
   DTS:PackageType="5"
-  DTS:VersionBuild="171"
-  DTS:VersionGUID="{77D78645-144E-483A-87AE-19DEB38CD716}">
+  DTS:VersionBuild="172"
+  DTS:VersionGUID="{407E5F06-5BC5-44CA-8125-1A9FCE32BA55}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -291,6 +291,22 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Cria a tabela temporária"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{49ddd395-9556-4110-9a05-f92bd2bf6465}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cria a tabela temporária"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{723B8641-CB14-45F9-8713-04892E8EC054}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[RawFile]', 'U') IS NOT NULL &#xA;DROP TABLE [dbo].[RawFile]&#xA;&#xA;&#xA;CREATE TABLE [dbo].[RawFile](&#xA; [directoryId] [int] NOT NULL,&#xA; [fullName] [nvarchar](4000) NULL,&#xA; [directory] [nvarchar](4000) NULL,&#xA; [name] [nvarchar](400) NULL,&#xA; [extension] [nvarchar](4000) NULL,&#xA; [length] [bigint] NULL,&#xA; [creationTime] [nvarchar](4000) NULL,&#xA; [lastAccessTime] [nvarchar](4000) NULL,&#xA; [lastWriteTime] [nvarchar](4000) NULL,&#xA; [lastOccurrenceTime] [nvarchar](4000) NULL,&#xA; [checksum] [nvarchar](4000) NULL&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[RawFile]  WITH CHECK ADD FOREIGN KEY([directoryId])&#xA;REFERENCES [dbo].[Directories] ([id])&#xA;ON DELETE CASCADE&#xA;GO&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Percorre o resultset dos diretorios"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:DelayValidation="True"
@@ -311,22 +327,6 @@
       </DTS:ForEachEnumerator>
       <DTS:Variables />
       <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Percorre o resultset dos diretorios\Cria a tabela temporária"
-          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{cd8599a6-4db5-46a7-b1c8-854933b5d2e0}"
-          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Cria a tabela temporária"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{723B8641-CB14-45F9-8713-04892E8EC054}"
-              SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[RawFile]', 'U') IS NOT NULL &#xA;DROP TABLE [dbo].[RawFile]&#xA;&#xA;&#xA;CREATE TABLE [dbo].[RawFile](&#xA;&#x9;[directoryId] [int] NOT NULL,&#xA;&#x9;[fullName] [nvarchar](4000) NULL,&#xA;&#x9;[directory] [nvarchar](4000) NULL,&#xA;&#x9;[name] [nvarchar](400) NULL,&#xA;&#x9;[extension] [nvarchar](4000) NULL,&#xA;&#x9;[length] [bigint] NULL,&#xA;&#x9;[creationTime] [nvarchar](4000) NULL,&#xA;&#x9;[lastAccessTime] [nvarchar](4000) NULL,&#xA;&#x9;[lastWriteTime] [nvarchar](4000) NULL,&#xA;&#x9;[lastOccurrenceTime] [nvarchar](4000) NULL,&#xA;&#x9;[checksum] [nvarchar](4000) NULL&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[RawFile]  WITH CHECK ADD FOREIGN KEY([directoryId])&#xA;REFERENCES [dbo].[Directories] ([id])&#xA;ON DELETE CASCADE&#xA;GO&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Percorre o resultset dos diretorios\Cria pasta para mover arquivos processados"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
@@ -1540,7 +1540,7 @@
               DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
               DTS:LocaleID="-1"
               DTS:ObjectName="Move arquivo"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <FileSystemData
@@ -1590,14 +1590,6 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Percorre o resultset dos diretorios\Percorre os arquivos de erro" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Percorre o resultset dos diretorios.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{C3A38A48-1C77-4542-BAE5-E5721E16C0B8}"
-          DTS:From="Package\Percorre o resultset dos diretorios\Cria a tabela temporária"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
@@ -1691,6 +1683,14 @@
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Apaga a tabela temporária" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{81A2603C-BA88-4AA8-AC65-DD807ED1FD53}"
+      DTS:From="Package\Cria a tabela temporária"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Percorre o resultset dos diretorios" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restrição 1]"
       DTS:CreationName=""
       DTS:DTSID="{F2E6F458-FFE2-4B40-827F-B430DEFAD547}"
@@ -1714,11 +1714,15 @@
         <NodeLayout
           Size="157,42"
           Id="Package\Alimenta tabelas"
-          TopLeft="288,624" />
+          TopLeft="335.5,624" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Apaga a tabela temporária"
+          TopLeft="311.5,706" />
         <NodeLayout
           Size="287,42"
           Id="Package\Percorre o resultset dos diretorios\Cria pasta para mover arquivos processados"
-          TopLeft="319,18.5" />
+          TopLeft="216.5,18.5" />
         <NodeLayout
           Size="255,42"
           Id="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento\Carrega arquivo na tabela temporária"
@@ -1795,13 +1799,13 @@
           TopLeft="432,95" />
         <EdgeLayout
           Id="Package\Percorre o resultset dos diretorios.PrecedenceConstraints[Constraint]"
-          TopLeft="416,60.5">
+          TopLeft="313.5,60.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-206,49.25"
+              EndConnector="-103.5,49.25"
               Start="0,0"
-              End="-206,41.75">
+              End="-103.5,41.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1812,13 +1816,13 @@
                     Point2="0,19.8638253638254"
                     Point3="-4,19.8638253638254" />
                   <mssgle:LineSegment
-                    End="-202,19.8638253638254" />
+                    End="-99.5,19.8638253638254" />
                   <mssgle:CubicBezierSegment
-                    Point1="-202,19.8638253638254"
-                    Point2="-206,19.8638253638254"
-                    Point3="-206,23.8638253638254" />
+                    Point1="-99.5,19.8638253638254"
+                    Point2="-103.5,19.8638253638254"
+                    Point3="-103.5,23.8638253638254" />
                   <mssgle:LineSegment
-                    End="-206,41.75" />
+                    End="-103.5,41.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1829,13 +1833,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Percorre o resultset dos diretorios.PrecedenceConstraints[Constraint 1]"
-          TopLeft="509,60.5">
+          TopLeft="406.5,60.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="44,34.5"
+              EndConnector="146.5,34.5"
               Start="0,0"
-              End="44,27">
+              End="146.5,27">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1846,39 +1850,13 @@
                     Point2="0,13.9147609147609"
                     Point3="4,13.9147609147609" />
                   <mssgle:LineSegment
-                    End="40,13.9147609147609" />
+                    End="142.5,13.9147609147609" />
                   <mssgle:CubicBezierSegment
-                    Point1="40,13.9147609147609"
-                    Point2="44,13.9147609147609"
-                    Point3="44,17.9147609147609" />
+                    Point1="142.5,13.9147609147609"
+                    Point2="146.5,13.9147609147609"
+                    Point3="146.5,17.9147609147609" />
                   <mssgle:LineSegment
-                    End="44,27" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\Percorre o resultset dos diretorios\Cria a tabela temporária"
-          TopLeft="43.5,18.75" />
-        <EdgeLayout
-          Id="Package\Percorre o resultset dos diretorios.PrecedenceConstraints[Constraint 2]"
-          TopLeft="143.25,60.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="0,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="146.5,27" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1890,21 +1868,21 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="679,346"
-          Size="679,389"
+          PanelSize="679,350"
+          Size="679,392"
           Id="Package\Percorre o resultset dos diretorios"
-          TopLeft="28.5000000000001,203.333333333333" />
+          TopLeft="76.0000000000001,203.333333333333" />
         <NodeLayout
           Size="185,42"
           Id="Package\Seleciona os diretorios"
-          TopLeft="271.5,100.333333333333" />
+          TopLeft="319,100.333333333333" />
         <NodeLayout
           Size="142,42"
           Id="Package\start time utc"
-          TopLeft="290,2.83333333333337" />
+          TopLeft="337.5,2.83333333333337" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="362.5,44.8333333333334">
+          TopLeft="410,44.8333333333334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1926,18 +1904,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="367.25,592.333333333333">
+          TopLeft="414.75,595.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.666666666667"
+              EndConnector="0,28.666666666667"
               Start="0,0"
-              End="0,24.166666666667">
+              End="0,21.166666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.166666666667" />
+                    End="0,21.166666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1946,35 +1924,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restrição 1]"
-          TopLeft="366,142.333333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204,42"
-          Id="Package\Apaga a tabela temporária"
-          TopLeft="264,706" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="366.25,666">
+          TopLeft="413.75,666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1986,6 +1938,78 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 1]"
+          TopLeft="411.5,142.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.833333333333,61"
+              Start="0,0"
+              End="115.833333333333,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5139582721129" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5139582721129"
+                    Point2="0,36.5139582721129"
+                    Point3="4,36.5139582721129" />
+                  <mssgle:LineSegment
+                    End="111.833333333333,36.5139582721129" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.833333333333,36.5139582721129"
+                    Point2="115.833333333333,36.5139582721129"
+                    Point3="115.833333333333,40.5139582721129" />
+                  <mssgle:LineSegment
+                    End="115.833333333333,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Cria a tabela temporária"
+          TopLeft="71.0000000000001,98" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="167.5,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136.166666666667,63.333333333333"
+              Start="0,0"
+              End="136.166666666667,55.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9106670584776" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.9106670584776"
+                    Point2="0,37.9106670584776"
+                    Point3="4,37.9106670584776" />
+                  <mssgle:LineSegment
+                    End="132.166666666667,37.9106670584776" />
+                  <mssgle:CubicBezierSegment
+                    Point1="132.166666666667,37.9106670584776"
+                    Point2="136.166666666667,37.9106670584776"
+                    Point3="136.166666666667,41.9106670584776" />
+                  <mssgle:LineSegment
+                    End="136.166666666667,55.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2007,13 +2031,13 @@
           Id="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento\Carrega arquivo na tabela temporária\OLE DB Destination"
           TopLeft="38,229" />
         <NodeLayout
-          Size="119,42"
-          Id="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento\Carrega arquivo na tabela temporária\arquivos"
-          TopLeft="67,25" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento\Carrega arquivo na tabela temporária\Derived Column"
           TopLeft="51,122" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento\Carrega arquivo na tabela temporária\arquivos"
+          TopLeft="67,25" />
         <EdgeLayout
           Id="Package\Percorre o resultset dos diretorios\Percore os arquivos com dados do armazenamento\Carrega arquivo na tabela temporária.Paths[Flat File Source Output]"
           TopLeft="127.25,67">
